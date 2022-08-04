@@ -45,14 +45,14 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  minitest (~> 5.8)
+  minitest
   pry
   puma
-  rack (~> 2.2.4)
-  rack-test (~> 2.0.2)
-  rubocop (~> 1.32)
-  rubocop-minitest (~> 0.21.0)
-  rubocop-performance (~> 1.14)
+  rack
+  rack-test
+  rubocop
+  rubocop-minitest
+  rubocop-performance
 
 BUNDLED WITH
    2.3.7
