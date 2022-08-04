@@ -1,2 +1,1 @@
-# simple-rack-template
-simple-rack-template
+# Simple rack application template
