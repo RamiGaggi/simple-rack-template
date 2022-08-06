@@ -15,7 +15,10 @@ class App
         Port:        ENV.fetch("PORT"),
         Thread:      ENV.fetch("THREADS") }
     when "test"
-      { environment: "test" }
+      { environment: "test",
+        Host:        "0.0.0.0",
+        Port:        3001,
+        Thread:      "0:5" }
     else
       { environment: "development",
         Host:        "0.0.0.0",
@@ -25,10 +28,8 @@ class App
   end
 
   def call(env)
-    headers = { "Content-Type" => "text/plain" }
     path = env["PATH_INFO"]
     content = ROUTES[path]
-
     if content
       status = 200
       body = [content]
@@ -36,9 +37,9 @@ class App
       status = 404
       body = ["Not Found"]
     end
-
+    headers = { "Content-Type" => "text/plain" }
     [status, headers, body]
   end
 end
 
-Rack::Handler::Puma.run(App.new, **App.config) unless ENV["ENV"] == "test"
+Rack::Handler::Puma.run(App.new, **App.config) if __FILE__ == $PROGRAM_NAME
