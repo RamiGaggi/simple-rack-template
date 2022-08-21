@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "rack/handler/puma"
-
 class App
   ROUTES = {
     "/" => "This is root!"
@@ -41,5 +39,3 @@ class App
     [status, headers, body]
   end
 end
-
-Rack::Handler::Puma.run(App.new, **App.config) if __FILE__ == $PROGRAM_NAME

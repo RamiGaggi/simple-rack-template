@@ -2,9 +2,8 @@
 
 source "https://rubygems.org"
 
-gem "rack"
-
 gem "puma"
+gem "rack"
 
 group :development, :test do
   gem "pry", require: false

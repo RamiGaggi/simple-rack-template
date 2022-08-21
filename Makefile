@@ -3,8 +3,12 @@ check: test lint
 
 .PHONY: test
 test:
-	ENV=test bundle exec ruby app_test.rb
+	bundle exec ruby app_test.rb
 
 .PHONY: lint
 lint:
-	ENV=test bundle exec rubocop
+	bundle exec rubocop
+
+.PHONY: run-server
+run-server:
+	bundle exec puma
